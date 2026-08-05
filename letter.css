@@ -1,0 +1,115 @@
+/* letter.css */
+
+body{
+    margin:0;
+    padding:30px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.paper{
+    width:90%;
+    max-width:760px;
+
+    background:#fffdf8;
+
+    border-radius:18px;
+
+    padding:45px;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.15);
+
+    position:relative;
+
+    animation:fadeIn .8s ease;
+}
+
+.paper::before{
+    content:"";
+    position:absolute;
+    inset:12px;
+
+    border:2px dashed #d7b98e;
+
+    border-radius:12px;
+
+    pointer-events:none;
+}
+
+.paper h1{
+    text-align:center;
+
+    color:#7b2cbf;
+
+    font-family:'Dancing Script',cursive;
+
+    font-size:52px;
+
+    margin-bottom:30px;
+}
+
+#letterContent{
+
+    font-size:22px;
+
+    line-height:1.9;
+
+    color:#444;
+
+    white-space:pre-wrap;
+
+    min-height:300px;
+}
+
+.bottom{
+
+    margin-top:40px;
+
+    text-align:center;
+}
+
+.bottom button{
+
+    padding:15px 35px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:#c77dff;
+
+    color:white;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.bottom button:hover{
+
+    transform:scale(1.05);
+
+    background:#9d4edd;
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+    }
+}
