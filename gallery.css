@@ -1,14 +1,9 @@
-/* ===========================
-   GALLERY.CSS
-=========================== */
-
-html,
 body{
     margin:0;
     padding:0;
-    overflow-x:hidden;
     background:linear-gradient(135deg,#fde2e4,#e9d5ff);
     font-family:"Cormorant Garamond",serif;
+    overflow-x:hidden;
 }
 
 .background{
@@ -19,8 +14,6 @@ body{
 }
 
 .container{
-    position:relative;
-    z-index:1;
     max-width:900px;
     margin:auto;
     padding:30px 20px;
@@ -29,70 +22,51 @@ body{
 
 h1{
     font-family:"Dancing Script",cursive;
-    font-size:52px;
+    font-size:58px;
     color:#7b2cbf;
-    margin-bottom:30px;
+    margin-bottom:25px;
 }
 
 /* ===========================
-   GALERI
+   AUTO SLIDER
 =========================== */
 
-.gallery-scroll{
+.slider{
+    width:100%;
+    overflow:hidden;
+    margin:20px 0 40px;
+}
 
+.gallery-track{
     display:flex;
-    align-items:center;
-
-    gap:15px;
-
-    overflow-x:auto;
-    overflow-y:hidden;
-
-    scroll-behavior:smooth;
-    -webkit-overflow-scrolling:touch;
-
-    padding:10px 5px 20px;
-
+    width:max-content;
+    animation:slide 28s linear infinite;
 }
 
-.gallery-scroll::-webkit-scrollbar{
-    display:none;
-}
-
-.gallery-scroll{
-
-    scrollbar-width:none;
-
-}
-
-.gallery-scroll img{
-
-    display:block;
-
-    width:120px;
-    height:170px;
-
-    flex-shrink:0;
-
+.gallery-track img{
+    width:140px;
+    height:190px;
     object-fit:cover;
-
+    margin:0 8px;
     border-radius:18px;
-
     box-shadow:0 10px 20px rgba(0,0,0,.15);
-
-    transition:.35s;
-
+    transition:.3s;
+    flex-shrink:0;
 }
 
-.gallery-scroll img:hover{
-
+.gallery-track img:hover{
     transform:scale(1.08);
-
 }
 
-.gallery-scroll img:active{
+@keyframes slide{
 
-    transform:scale(.96);
+    from{
+        transform:translateX(0);
+    }
+
+    to{
+        transform:translateX(-50%);
+    }
 
 }
 
@@ -101,27 +75,21 @@ h1{
 =========================== */
 
 .ending{
-
-    margin-top:35px;
-
+    margin-top:30px;
     color:#555;
-
     line-height:2;
-
     font-size:22px;
+}
 
+.ending p{
+    margin-bottom:28px;
 }
 
 .love{
-
-    margin-top:30px;
-
-    color:#9d4edd;
-
-    font-size:34px;
-
     font-family:"Dancing Script",cursive;
-
+    color:#9d4edd;
+    font-size:42px;
+    margin-top:45px;
 }
 
 /* ===========================
@@ -130,17 +98,16 @@ h1{
 
 button{
 
-    margin-top:35px;
+    margin-top:25px;
+    padding:16px 40px;
 
     border:none;
 
+    border-radius:40px;
+
     background:#c77dff;
 
-    color:white;
-
-    padding:15px 35px;
-
-    border-radius:40px;
+    color:#fff;
 
     font-size:18px;
 
@@ -148,7 +115,7 @@ button{
 
     transition:.3s;
 
-    box-shadow:0 10px 25px rgba(199,125,255,.35);
+    box-shadow:0 8px 20px rgba(199,125,255,.4);
 
 }
 
@@ -156,52 +123,7 @@ button:hover{
 
     background:#9d4edd;
 
-    transform:translateY(-2px);
-
-}
-
-button:active{
-
-    transform:scale(.97);
-
-}
-
-/* ===========================
-   TABLET
-=========================== */
-
-@media (max-width:768px){
-
-    .container{
-
-        padding:25px 16px;
-
-    }
-
-    h1{
-
-        font-size:42px;
-
-    }
-
-    .gallery-scroll{
-
-        gap:12px;
-
-    }
-
-    .gallery-scroll img{
-
-        width:95px;
-        height:135px;
-
-    }
-
-    .ending{
-
-        font-size:18px;
-
-    }
+    transform:scale(1.05);
 
 }
 
@@ -209,55 +131,44 @@ button:active{
    MOBILE
 =========================== */
 
-@media (max-width:480px){
+@media(max-width:768px){
 
-    .container{
+h1{
 
-        padding:20px 14px;
+    font-size:46px;
 
-    }
+}
 
-    h1{
+.gallery-track img{
 
-        font-size:34px;
+    width:95px;
 
-    }
+    height:130px;
 
-    .gallery-scroll{
+    margin:0 6px;
 
-        gap:10px;
+}
 
-        padding:8px 2px 18px;
+.ending{
 
-    }
+    font-size:18px;
 
-    .gallery-scroll img{
+    line-height:1.9;
 
-        width:85px;
-        height:120px;
+}
 
-        border-radius:14px;
+.love{
 
-    }
+    font-size:34px;
 
-    .ending{
+}
 
-        font-size:17px;
-        line-height:1.8;
+button{
 
-    }
+    width:90%;
 
-    .love{
+    max-width:280px;
 
-        font-size:30px;
-
-    }
-
-    button{
-
-        width:100%;
-        font-size:17px;
-
-    }
+}
 
 }
