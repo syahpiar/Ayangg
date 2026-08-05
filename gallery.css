@@ -1,11 +1,26 @@
+/* ===========================
+   GALLERY.CSS
+=========================== */
+
+html,
 body{
     margin:0;
     padding:0;
+    overflow-x:hidden;
     background:linear-gradient(135deg,#fde2e4,#e9d5ff);
     font-family:"Cormorant Garamond",serif;
 }
 
+.background{
+    position:fixed;
+    inset:0;
+    background:linear-gradient(135deg,#fde2e4,#e9d5ff);
+    z-index:-2;
+}
+
 .container{
+    position:relative;
+    z-index:1;
     max-width:900px;
     margin:auto;
     padding:30px 20px;
@@ -13,54 +28,59 @@ body{
 }
 
 h1{
-
     font-family:"Dancing Script",cursive;
-
     font-size:52px;
-
     color:#7b2cbf;
-
     margin-bottom:30px;
-
 }
+
+/* ===========================
+   GALERI
+=========================== */
 
 .gallery-scroll{
 
     display:flex;
+    align-items:center;
 
     gap:15px;
 
     overflow-x:auto;
-
     overflow-y:hidden;
 
     scroll-behavior:smooth;
+    -webkit-overflow-scrolling:touch;
 
-    padding-bottom:10px;
+    padding:10px 5px 20px;
 
 }
 
 .gallery-scroll::-webkit-scrollbar{
-
     display:none;
+}
+
+.gallery-scroll{
+
+    scrollbar-width:none;
 
 }
 
 .gallery-scroll img{
 
-    width:120px;
+    display:block;
 
+    width:120px;
     height:170px;
+
+    flex-shrink:0;
 
     object-fit:cover;
 
     border-radius:18px;
 
-    flex-shrink:0;
-
-    transition:.3s;
-
     box-shadow:0 10px 20px rgba(0,0,0,.15);
+
+    transition:.35s;
 
 }
 
@@ -70,15 +90,25 @@ h1{
 
 }
 
+.gallery-scroll img:active{
+
+    transform:scale(.96);
+
+}
+
+/* ===========================
+   ENDING
+=========================== */
+
 .ending{
 
-    margin-top:40px;
+    margin-top:35px;
+
+    color:#555;
 
     line-height:2;
 
     font-size:22px;
-
-    color:#555;
 
 }
 
@@ -86,13 +116,17 @@ h1{
 
     margin-top:30px;
 
-    font-size:32px;
-
     color:#9d4edd;
+
+    font-size:34px;
 
     font-family:"Dancing Script",cursive;
 
 }
+
+/* ===========================
+   BUTTON
+=========================== */
 
 button{
 
@@ -114,36 +148,116 @@ button{
 
     transition:.3s;
 
+    box-shadow:0 10px 25px rgba(199,125,255,.35);
+
 }
 
 button:hover{
 
     background:#9d4edd;
 
-    transform:scale(1.05);
+    transform:translateY(-2px);
 
 }
 
-@media(max-width:768px){
+button:active{
 
-.gallery-scroll img{
-
-    width:95px;
-
-    height:135px;
+    transform:scale(.97);
 
 }
 
-h1{
+/* ===========================
+   TABLET
+=========================== */
 
-    font-size:42px;
+@media (max-width:768px){
+
+    .container{
+
+        padding:25px 16px;
+
+    }
+
+    h1{
+
+        font-size:42px;
+
+    }
+
+    .gallery-scroll{
+
+        gap:12px;
+
+    }
+
+    .gallery-scroll img{
+
+        width:95px;
+        height:135px;
+
+    }
+
+    .ending{
+
+        font-size:18px;
+
+    }
 
 }
 
-.ending{
+/* ===========================
+   MOBILE
+=========================== */
 
-    font-size:18px;
+@media (max-width:480px){
 
-}
+    .container{
+
+        padding:20px 14px;
+
+    }
+
+    h1{
+
+        font-size:34px;
+
+    }
+
+    .gallery-scroll{
+
+        gap:10px;
+
+        padding:8px 2px 18px;
+
+    }
+
+    .gallery-scroll img{
+
+        width:85px;
+        height:120px;
+
+        border-radius:14px;
+
+    }
+
+    .ending{
+
+        font-size:17px;
+        line-height:1.8;
+
+    }
+
+    .love{
+
+        font-size:30px;
+
+    }
+
+    button{
+
+        width:100%;
+        font-size:17px;
+
+    }
 
 }
