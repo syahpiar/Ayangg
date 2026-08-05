@@ -1,67 +1,41 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Forever ❤️</title>
+    <title>Galeri Kenangan ❤️</title>
 
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="ending.css">
-    <link rel="stylesheet" href="heart.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="gallery.css">
 </head>
 
 <body>
 
-    <!-- Floating Hearts -->
-    <div id="hearts"></div>
+<div class="gallery-container">
 
-    <!-- Background Blur -->
-    <div class="background"></div>
+    <h1>Galeri Kenangan 📸</h1>
 
-    <main class="ending">
+    <img id="photo" src="" alt="Foto Kenangan">
 
-        <div class="glass">
+    <div class="controls">
 
-            <h1>Untuk Sania ❤️</h1>
+        <button id="prevBtn">⬅ Sebelumnya</button>
 
-            <p class="quote">
-                "Terima kasih sudah meluangkan waktu membaca surat ini.
-                Semoga setiap kata yang kamu baca
-                bisa menjadi kenangan yang indah."
-            </p>
+        <button id="nextBtn">Selanjutnya ➡</button>
 
-            <div class="divider"></div>
+    </div>
 
-            <p class="closing">
-                Tidak peduli bagaimana akhir cerita kita nanti,
-                aku hanya ingin mengucapkan terima kasih
-                karena pernah menjadi bagian yang berharga.
-            </p>
+    <br>
 
-            <h2 id="signature"></h2>
+    <button id="finishBtn">
+        ❤️ Selesai
+    </button>
 
-            <div class="buttons">
+</div>
 
-                <button onclick="location.href='index.html'">
-                    💌 Baca Lagi
-                </button>
-
-            </div>
-
-        </div>
-
-    </main>
-
-    <script src="config.js"></script>
-    <script src="ending.js"></script>
+<script src="config.js"></script>
+<script src="gallery.js"></script>
 
 </body>
-
 </html>
