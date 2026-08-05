@@ -1,49 +1,41 @@
-// ======================
-// Floating Hearts
-// ======================
+/* ===========================
+   FLOATING HEARTS
+=========================== */
 
-const hearts = document.getElementById("hearts");
+const heartsContainer = document.getElementById("hearts");
 
-for(let i = 0; i < 35; i++){
+function createHeart(){
 
     const heart = document.createElement("div");
 
     heart.className = "heart";
+
     heart.innerHTML = "❤️";
 
     heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = (4 + Math.random() * 6) + "s";
-    heart.style.animationDelay = Math.random() * 5 + "s";
-    heart.style.fontSize = (18 + Math.random() * 18) + "px";
 
-    hearts.appendChild(heart);
+    heart.style.fontSize = (16 + Math.random() * 18) + "px";
+
+    heart.style.animationDuration = (5 + Math.random() * 5) + "s";
+
+    heart.style.opacity = Math.random();
+
+    heartsContainer.appendChild(heart);
+
+    setTimeout(() => {
+
+        heart.remove();
+
+    },10000);
+
+}
+
+// Buat beberapa hati saat halaman dibuka
+for(let i=0;i<20;i++){
+
+    setTimeout(createHeart,i*300);
 
 }
 
-// ======================
-// Auto Slide Gallery
-// ======================
-
-const gallery = document.querySelector(".gallery-scroll");
-
-if(gallery){
-
-    let speed = 1;
-
-    function slide(){
-
-        gallery.scrollLeft += speed;
-
-        if(gallery.scrollLeft >= gallery.scrollWidth - gallery.clientWidth){
-
-            gallery.scrollLeft = 0;
-
-        }
-
-        requestAnimationFrame(slide);
-
-    }
-
-    requestAnimationFrame(slide);
-
-}
+// Tambah hati baru setiap 800ms
+setInterval(createHeart,800);
