@@ -1,25 +1,29 @@
-const flowers=document.getElementById("flowers");
+// ==========================
+// Sakura Flowers
+// ==========================
 
-if(flowers){
+const flowers = document.getElementById("flowers");
 
-for(let i=0;i<20;i++){
+if (flowers) {
 
-const flower=document.createElement("div");
+    for (let i = 0; i < 25; i++) {
 
-flower.className="flower";
+        const flower = document.createElement("div");
 
-flower.innerHTML="🌸";
+        flower.className = "flower";
+        flower.innerHTML = "🌸";
 
-flower.style.left=Math.random()*100+"vw";
+        flower.style.left = Math.random() * 100 + "vw";
+        flower.style.fontSize = (18 + Math.random() * 18) + "px";
 
-flower.style.fontSize=(18+Math.random()*20)+"px";
+        flower.style.animationDuration =
+            (8 + Math.random() * 8) + "s";
 
-flower.style.animationDuration=(8+Math.random()*8)+"s";
+        flower.style.animationDelay =
+            Math.random() * 8 + "s";
 
-flower.style.animationDelay=Math.random()*8+"s";
+        flowers.appendChild(flower);
 
-flowers.appendChild(flower);
-
-}
+    }
 
 }
