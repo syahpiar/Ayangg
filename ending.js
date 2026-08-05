@@ -1,4 +1,9 @@
+// ======================
 // Floating Hearts
+// ======================
+
+const hearts = document.getElementById("hearts");
+
 for(let i = 0; i < 35; i++){
 
     const heart = document.createElement("div");
@@ -8,49 +13,37 @@ for(let i = 0; i < 35; i++){
 
     heart.style.left = Math.random() * 100 + "vw";
     heart.style.animationDuration = (4 + Math.random() * 6) + "s";
+    heart.style.animationDelay = Math.random() * 5 + "s";
     heart.style.fontSize = (18 + Math.random() * 18) + "px";
 
-    document.getElementById("hearts").appendChild(heart);
+    hearts.appendChild(heart);
+
 }
 
-// ===== AUTO LOOP GALLERY =====
+// ======================
+// Auto Slide Gallery
+// ======================
 
 const gallery = document.querySelector(".gallery-scroll");
 
-let speed = 0.5; // semakin kecil semakin pelan
+if(gallery){
 
-function autoScroll(){
+    let speed = 1;
 
-    if(!gallery) return;
+    function slide(){
 
-    gallery.scrollLeft += speed;
+        gallery.scrollLeft += speed;
 
-    // ketika sampai ujung, kembali ke awal
-    if(gallery.scrollLeft >= gallery.scrollWidth - gallery.clientWidth){
+        if(gallery.scrollLeft >= gallery.scrollWidth - gallery.clientWidth){
 
-        gallery.scrollLeft = 0;
+            gallery.scrollLeft = 0;
+
+        }
+
+        requestAnimationFrame(slide);
 
     }
 
-    requestAnimationFrame(autoScroll);
+    requestAnimationFrame(slide);
 
 }
-
-requestAnimationFrame(autoScroll);
-
-// Saat disentuh, hentikan sebentar
-gallery.addEventListener("touchstart",()=>{
-
-    speed = 0;
-
-});
-
-gallery.addEventListener("touchend",()=>{
-
-    setTimeout(()=>{
-
-        speed = 0.5;
-
-    },1500);
-
-});
