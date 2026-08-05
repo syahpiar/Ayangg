@@ -1,47 +1,69 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>My Letter ❤️</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="letter.css">
+<title>Surat Untuk Sania ❤️</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="letter.css">
+<link rel="stylesheet" href="flowers.css">
+<link rel="stylesheet" href="heart.css">
 
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
 
 <div class="background"></div>
 
+<div id="flowers"></div>
+
+<div id="hearts"></div>
+
 <div class="paper">
 
-    <h1>Untuk Sania ❤️</h1>
+<h1>Untuk Sania ❤️</h1>
 
-    <div id="letterContent">
-        Memuat surat...
-    </div>
+<div id="letterContent">
 
-    <div class="bottom">
-
-        <button id="nextBtn">
-            Lihat Kenangan 📸
-        </button>
-
-    </div>
+Memuat surat...
 
 </div>
 
-<audio id="bgm" autoplay loop>
-    <source src="assets/music/song.mp3" type="audio/mpeg">
-</audio>
+<div class="bottom">
+
+<button id="nextBtn">
+
+Lihat Kenangan 📸
+
+</button>
+
+</div>
+
+</div>
 
 <script src="config.js"></script>
+<script src="flowers.js"></script>
 <script src="letter.js"></script>
 
+<script>
+
+document
+.getElementById("nextBtn")
+.addEventListener("click",()=>{
+
+window.location.href="gallery.html";
+
+});
+
+</script>
+
 </body>
+
 </html>
