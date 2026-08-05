@@ -1,41 +1,74 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Galeri Kenangan ❤️</title>
+    <title>Kenangan Kita ❤️</title>
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="gallery.css">
+    <link rel="stylesheet" href="heart.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<div class="gallery-container">
+<div class="background"></div>
 
-    <h1>Galeri Kenangan 📸</h1>
+<div id="hearts"></div>
 
-    <img id="photo" src="" alt="Foto Kenangan">
+<div class="container">
 
-    <div class="controls">
+    <h1>Kenangan Kita ❤️</h1>
 
-        <button id="prevBtn">⬅ Sebelumnya</button>
+    <div class="gallery-scroll">
 
-        <button id="nextBtn">Selanjutnya ➡</button>
+        <img src="assets/photos/1.jpg" alt="">
+        <img src="assets/photos/2.jpg" alt="">
+        <img src="assets/photos/3.jpg" alt="">
+        <img src="assets/photos/4.jpg" alt="">
+        <img src="assets/photos/5.jpg" alt="">
 
     </div>
 
-    <br>
+    <div class="ending">
 
-    <button id="finishBtn">
-        ❤️ Selesai
+        <p>
+            Terima kasih sudah meluangkan waktu
+            membaca surat ini.
+        </p>
+
+        <p>
+            Mungkin website ini sederhana,
+            tetapi setiap bagiannya dibuat
+            dengan penuh perhatian.
+        </p>
+
+        <p>
+            Semoga setiap langkahmu
+            selalu dipenuhi kebahagiaan,
+            senyuman,
+            dan orang-orang baik.
+        </p>
+
+        <p class="love">
+            Love,<br>
+            Piar ❤️
+        </p>
+
+    </div>
+
+    <button onclick="location.href='index.html'">
+        💌 Baca Lagi
     </button>
 
 </div>
 
-<script src="config.js"></script>
-<script src="gallery.js"></script>
+<script src="ending.js"></script>
 
 </body>
 </html>
