@@ -1,41 +1,78 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Made for Sania ❤️</title>
 
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<title>Untuk Sania ❤️</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="flowers.css">
+<link rel="stylesheet" href="heart.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
 
 <div class="background"></div>
+
 <div id="flowers"></div>
+
+<div id="hearts"></div>
 
 <div class="container">
 
-    <div class="envelope">
-        💌
-    </div>
+<div class="envelope">
+💌
+</div>
 
-    <h1>Made for Sania</h1>
+<h1>Untuk Sania ❤️</h1>
 
-    <p>
-        Ada sebuah surat yang telah lama menunggu untuk dibuka...
-    </p>
+<p>
 
-    <button id="openLetter">
-        Open Letter
-    </button>
+Aku membuat sesuatu yang sederhana...
+
+Semoga kamu menyukainya.
+
+</p>
+
+<button id="openLetter">
+
+Buka Surat 💜
+
+</button>
 
 </div>
 
+<audio id="music" loop>
+
+<source src="assets/music/song.mp3" type="audio/mpeg">
+
+</audio>
+
 <script src="config.js"></script>
-<script src="script.js"></script>
+<script src="flowers.js"></script>
+
+<script>
+
+const music=document.getElementById("music");
+
+document.getElementById("openLetter").addEventListener("click",()=>{
+
+music.play().catch(()=>{});
+
+window.location.href="letter.html";
+
+});
+
+</script>
 
 </body>
+
 </html>
