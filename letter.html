@@ -27,10 +27,6 @@
 <div id="hearts"></div>
 
 
-<!-- =========================
-     SURAT
-========================= -->
-
 <div class="paper">
 
     <h1>Untuk Sania ❤️</h1>
@@ -54,100 +50,91 @@
      MUSIK
 ========================= -->
 
-<audio id="music" loop preload="auto">
-
-    <source
-        src="assets/music/song.mp3"
-        type="audio/mpeg">
-
+<audio
+    id="music"
+    src="assets/music/song.mp3"
+    loop
+    preload="auto">
 </audio>
 
 
-<!-- =========================
-     JAVASCRIPT
-========================= -->
-
 <script src="config.js"></script>
-
 <script src="flower.js"></script>
-
 <script src="heart.js"></script>
-
 <script src="letter.js"></script>
 
 
 <script>
 
 /* =========================
-   MUSIK
+   MUSIC
 ========================= */
 
 const music = document.getElementById("music");
 
-function playMusic(){
+music.volume = 0.7;
 
-    if(!music) return;
 
-    music.volume = 0.7;
+/*
+   Coba langsung memainkan musik
+   ketika halaman letter dibuka.
+*/
 
-    const playPromise = music.play();
+window.addEventListener("load", function(){
 
-    if(playPromise !== undefined){
+    music.play().catch(function(){
 
-        playPromise.catch(() => {
+        /*
+         * Jika browser memblokir autoplay,
+         * musik akan dimainkan ketika user
+         * menyentuh layar.
+         */
 
-            // Browser HP mungkin memblokir autoplay.
-            // Musik akan dicoba lagi ketika user menyentuh layar.
+    });
 
-        });
+});
+
+
+/*
+   Fallback untuk HP.
+   Begitu user menyentuh layar,
+   musik langsung dimainkan.
+*/
+
+function startMusic(){
+
+    if(music.paused){
+
+        music.play().catch(function(){});
 
     }
 
 }
 
+document.addEventListener(
+    "touchstart",
+    startMusic,
+    { once:true }
+);
 
-/* Coba memainkan musik ketika halaman selesai dimuat */
-
-window.addEventListener("load", () => {
-
-    playMusic();
-
-});
-
-
-/* Jika autoplay diblokir,
-   sentuhan pertama akan menjalankan musik */
-
-document.addEventListener("click", () => {
-
-    playMusic();
-
-}, { once:true });
-
-
-document.addEventListener("touchstart", () => {
-
-    playMusic();
-
-}, { once:true });
+document.addEventListener(
+    "click",
+    startMusic,
+    { once:true }
+);
 
 
 /* =========================
-   TOMBOL KE GALERI
+   NEXT BUTTON
 ========================= */
 
 const nextBtn = document.getElementById("nextBtn");
 
 if(nextBtn){
 
-    nextBtn.addEventListener("click", () => {
+    nextBtn.addEventListener("click", function(){
 
-        /*
-         * Pastikan musik tetap dimainkan
-         * sebelum pindah halaman.
-         */
-
-        playMusic();
+        startMusic();
 
         window.location.href = "gallery.html";
 
