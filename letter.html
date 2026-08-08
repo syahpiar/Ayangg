@@ -26,36 +26,134 @@
 
 <div id="hearts"></div>
 
+
+<!-- =========================
+     SURAT
+========================= -->
+
 <div class="paper">
 
-<h1>Untuk Sania ❤️</h1>
+    <h1>Untuk Sania ❤️</h1>
 
-<div id="letterContent">
-Memuat surat...
+    <div id="letterContent">
+        Memuat surat...
+    </div>
+
+    <div class="bottom">
+
+        <button id="nextBtn">
+            Lihat Kenangan 📸
+        </button>
+
+    </div>
+
 </div>
 
-<div class="bottom">
 
-<button id="nextBtn">
-Lihat Kenangan 📸
-</button>
+<!-- =========================
+     MUSIK
+========================= -->
 
-</div>
+<audio id="music" loop preload="auto">
 
-</div>
+    <source
+        src="assets/music/song.mp3"
+        type="audio/mpeg">
+
+</audio>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
 
 <script src="config.js"></script>
+
 <script src="flower.js"></script>
+
 <script src="heart.js"></script>
+
 <script src="letter.js"></script>
+
 
 <script>
 
-document.getElementById("nextBtn").addEventListener("click",()=>{
+/* =========================
+   MUSIK
+========================= */
 
-window.location.href="gallery.html";
+const music = document.getElementById("music");
+
+function playMusic(){
+
+    if(!music) return;
+
+    music.volume = 0.7;
+
+    const playPromise = music.play();
+
+    if(playPromise !== undefined){
+
+        playPromise.catch(() => {
+
+            // Browser HP mungkin memblokir autoplay.
+            // Musik akan dicoba lagi ketika user menyentuh layar.
+
+        });
+
+    }
+
+}
+
+
+/* Coba memainkan musik ketika halaman selesai dimuat */
+
+window.addEventListener("load", () => {
+
+    playMusic();
 
 });
+
+
+/* Jika autoplay diblokir,
+   sentuhan pertama akan menjalankan musik */
+
+document.addEventListener("click", () => {
+
+    playMusic();
+
+}, { once:true });
+
+
+document.addEventListener("touchstart", () => {
+
+    playMusic();
+
+}, { once:true });
+
+
+/* =========================
+   TOMBOL KE GALERI
+========================= */
+
+const nextBtn = document.getElementById("nextBtn");
+
+if(nextBtn){
+
+    nextBtn.addEventListener("click", () => {
+
+        /*
+         * Pastikan musik tetap dimainkan
+         * sebelum pindah halaman.
+         */
+
+        playMusic();
+
+        window.location.href = "gallery.html";
+
+    });
+
+}
 
 </script>
 
